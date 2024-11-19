@@ -1,0 +1,9 @@
+gcc 2.27.c -g -o 2.27
+patchelf --replace-needed libc.so.6 /home/llk/Desktop/glibc-chunk-poc-basic/glibc/debug_glibc-master/2.27/amd64/lib/libc-2.27.so ./2.27
+patchelf  --set-interpreter /home/llk/Desktop/glibc-chunk-poc-basic/glibc/debug_glibc-master/2.27/amd64/lib/ld-2.27.so ./2.27
+
+gdb ./2.27 -ex "dir /home/llk/Desktop/glibc-chunk-poc-basic/glibc/debug_glibc-master/2.27/source/malloc 
+                /home/llk/Desktop/glibc-chunk-poc-basic/glibc/debug_glibc-master/2.27/source/stdlib
+                /home/llk/Desktop/glibc-chunk-poc-basic/glibc/debug_glibc-master/2.27/source/elf"
+
+                

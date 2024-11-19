@@ -1,0 +1,5 @@
+gcc 2.26.c -g -o 2.26
+patchelf --replace-needed libc.so.6  ./libc-2.26.so  ./2.26
+patchelf --set-interpreter  ./ld-2.26.so  ./2.26
+
+gdb ./2.26 -ex "dir malloc.c"

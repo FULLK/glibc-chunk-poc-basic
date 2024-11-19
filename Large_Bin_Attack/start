@@ -1,0 +1,5 @@
+gcc 2.23.c -g -o 2.23
+patchelf --replace-needed libc.so.6 /home/llk/Desktop/chunk_poc/glibc/debug_glibc-master/2.23/amd64/lib/libc-2.23.so ./2.23
+patchelf  --set-interpreter /home/llk/Desktop/chunk_poc/glibc/debug_glibc-master/2.23/amd64/lib/ld-2.23.so  ./2.23
+
+gdb ./2.23 -e "dir /home/llk/Desktop/chunk_poc/glibc/debug_glibc-master/2.23/source/malloc"

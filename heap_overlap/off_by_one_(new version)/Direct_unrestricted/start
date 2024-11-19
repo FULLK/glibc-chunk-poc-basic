@@ -1,0 +1,6 @@
+gcc 2.29.c -g -o 2.29
+patchelf --replace-needed libc.so.6 /home/llk/Desktop/chunk_poc/glibc/debug_glibc-master/2.29/amd64/lib/libc.so.6 ./2.29
+patchelf  --set-interpreter /home/llk/Desktop/chunk_poc/glibc/debug_glibc-master/2.29/amd64/lib/ld-linux-x86-64.so.2  ./2.29
+
+
+gdb ./2.29 -ex "dir /home/llk/Desktop/chunk_poc/glibc/debug_glibc-master/2.29/source/malloc"

@@ -1,0 +1,6 @@
+gcc 2.38.c -g -o 2.38
+patchelf --replace-needed libc.so.6 ./libc.so.6  ./2.38
+patchelf  --set-interpreter ./ld-linux-x86-64.so.2  ./2.38
+
+
+gdb ./2.38 -ex "dir /home/llk/Desktop/glibc-chunk-poc-basic/glibc/debug_glibc-master/2.35/source/stdlib"
